@@ -9,26 +9,32 @@ N es un numero que ingresa el usuario
 http://es.wikipedia.org/wiki/N%C3%BAmero_perfecto
 """
 
-N = input("ingrese el valor de N: ")
+
+##########    Variables       ############
+N = input("ingrese el valor de N: ")   #Aqui solicita cuantos numero perfectos se desean
 m=0
 n=2
 lista=[]
 ans=0
 a=int
-while(m<int(N)):
-    a=(2**(n-1))*((2**(n))-1)
+
+
+while(m<int(N)):                
+    a=(2**(n-1))*((2**(n))-1)          #Formula 1:  Encontrada en la documentación
     for i in range(1,a,1):
         if(a%i==0):
-            lista.extend([i])
+            lista.extend([i])          #Realiza una lista con todos los multiplos
     for j in lista:
-        ans+=j
+        ans+=j                         #Suma cada multiplo
     if(ans==a):
         m+=1
-        print(ans)
+        print(ans)                     #va mostrando cada número perfecto
     else:
-        a=0
-        lista=[]
+        a=0                            """Este es comentario para mi: no se si es""" 
+        lista=[]                       """necesario para que resetee el while"""
         ans=0
         n+=1
 
 
+#Posible optimizacion, calcular los numeros primos y trabajar con esos en la formula 1
+#Recomendacion, el N mientras mas grande, mas tardado el procesamiento. 
