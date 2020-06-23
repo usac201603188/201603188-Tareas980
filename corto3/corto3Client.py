@@ -22,12 +22,12 @@ while True:
             sock.sendall(duracion.encode())
             if(data==binascii.unhexlify("CC")):
                 print("Se ha comenzado la grabacion")
-                if(data==binascii.unhexlify("CC")):
+                if(data==binascii.unhexlify("CC")):#data seguira siendo CC no cambia antes de este if
                     print("Se ha finalizado la grabacion")
 
         elif message=="02":
             print("Se transferira el archivo")
-            data=sock.recv(BUFFER_SIZE)
+            data=sock.recv(BUFFER_SIZE)#Se pierde BUFF_SIZE bytes del archivo
             audio_nuevo=open("201603188_client.wav","wb")
             while data:
                 data=sock.recv(BUFFER_SIZE)
